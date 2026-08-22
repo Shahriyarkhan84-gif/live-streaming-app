@@ -1,0 +1,39 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: livestream_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: livestream
+      POSTGRES_PASSWORD: livestream
+      POSTGRES_DB: livestream
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U livestream -d livestream']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Redis is used later (Phase 8+) as the chat pub/sub adapter and for
+  # rate limiting. Included now so `docker compose up` provisions the full
+  # local backing services in one command.
+  redis:
+    image: redis:7-alpine
+    container_name: livestream_redis
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres_data:
+  redis_data:

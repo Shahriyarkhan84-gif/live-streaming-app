@@ -1,0 +1,8 @@
+/*
+ * Shared UI base styles. Apps import this once (via `@livestream/ui/styles.css`)
+ * after their own Tailwind directives. Component-level styles come with the
+ * component library in later phases.
+ */
+:root {
+  --ls-radius: 0.875rem;
+}
