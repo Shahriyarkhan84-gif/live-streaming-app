@@ -1,66 +1,25 @@
 export default function HomePage(): React.ReactElement {
-  const discoverySections = [
-    {
-      title: '🔥 Trending Now',
-      items: ['Most watched streams', 'Fast-growing creators', 'Trending topics'],
-    },
-    {
-      title: '⚡ Rising Creators',
-      items: [
-        'Smaller creators getting rapid engagement',
-        '“Rising” score',
-      ],
-    },
-    {
-      title: '🎯 For You',
-      items: [
-        'Watch time',
-        'Followed creators',
-        'Categories',
-        'Likes',
-        'Chat participation',
-      ],
-    },
-    {
-      title: '🌍 Live Around You',
-      items: ['Optional location-based discovery', 'Privacy-controlled'],
-    },
-    {
-      title: '🏆 Events',
-      items: [
-        'Platform competitions',
-        'Creator battles',
-        'Talent competitions',
-        'Seasonal events',
-      ],
-    },
+  const roles = [
+    'Host',
+    'Guest 1',
+    'Guest 2',
+    'Guest 3',
+    'Audience',
+    'Moderator',
   ];
 
   return (
-    <main className="mx-auto min-h-screen w-full max-w-3xl bg-neutral-950 px-6 py-8">
-      <header className="mb-8">
-        <p className="text-sm font-medium text-brand-300">Home / Discovery</p>
-        <h1 className="mt-2 text-3xl font-bold text-neutral-100">
-          Intelligent stream discovery
+    <main className="mx-auto flex min-h-screen w-full max-w-md items-center justify-center bg-neutral-950 px-6 py-8">
+      <section className="w-full rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
+        <h1 className="mb-4 text-xl font-bold uppercase tracking-[0.16em] text-neutral-100">
+          LIVE SPACE
         </h1>
-      </header>
-
-      <section className="space-y-4">
-        {discoverySections.map((section) => (
-          <article
-            key={section.title}
-            className="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-5"
-          >
-            <h2 className="mb-3 text-lg font-semibold text-neutral-100">
-              {section.title}
-            </h2>
-            <ul className="space-y-2 text-sm text-neutral-300">
-              {section.items.map((item) => (
-                <li key={item}>• {item}</li>
-              ))}
-            </ul>
-          </article>
-        ))}
+        <div className="space-y-2 text-neutral-200">
+          <p>│</p>
+          {roles.map((role, index) => (
+            <p key={role}>{index === roles.length - 1 ? '└── ' : '├── '}{role}</p>
+          ))}
+        </div>
       </section>
     </main>
   );
