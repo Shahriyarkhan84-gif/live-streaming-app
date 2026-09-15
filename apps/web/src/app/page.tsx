@@ -1,44 +1,66 @@
 export default function HomePage(): React.ReactElement {
-  const liveChatMessages = [
-    'User: Hello!',
-    'User2: Amazing stream',
-    'User3: 😂😂',
+  const discoverySections = [
+    {
+      title: '🔥 Trending Now',
+      items: ['Most watched streams', 'Fast-growing creators', 'Trending topics'],
+    },
+    {
+      title: '⚡ Rising Creators',
+      items: [
+        'Smaller creators getting rapid engagement',
+        '“Rising” score',
+      ],
+    },
+    {
+      title: '🎯 For You',
+      items: [
+        'Watch time',
+        'Followed creators',
+        'Categories',
+        'Likes',
+        'Chat participation',
+      ],
+    },
+    {
+      title: '🌍 Live Around You',
+      items: ['Optional location-based discovery', 'Privacy-controlled'],
+    },
+    {
+      title: '🏆 Events',
+      items: [
+        'Platform competitions',
+        'Creator battles',
+        'Talent competitions',
+        'Seasonal events',
+      ],
+    },
   ];
 
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-md flex-col border-x border-neutral-800 bg-neutral-950 px-4 py-5">
-      <header className="mb-8 flex items-center justify-between text-sm">
-        <span className="font-semibold text-neutral-100">← Creator</span>
-        <span className="font-medium text-neutral-200">👥 12.4K</span>
+    <main className="mx-auto min-h-screen w-full max-w-3xl bg-neutral-950 px-6 py-8">
+      <header className="mb-8">
+        <p className="text-sm font-medium text-brand-300">Home / Discovery</p>
+        <h1 className="mt-2 text-3xl font-bold text-neutral-100">
+          Intelligent stream discovery
+        </h1>
       </header>
 
-      <section className="flex-1">
-        <div className="mb-20 flex h-48 items-center justify-center rounded-2xl border border-neutral-800 bg-neutral-900/50 text-lg font-semibold uppercase tracking-[0.18em] text-neutral-200">
-          Live Video
-        </div>
-
-        <div className="space-y-5">
-          <p className="text-2xl text-neutral-100">❤️ ❤️ 💎 ⭐</p>
-
-          <ul className="space-y-2 text-sm text-neutral-200">
-            {liveChatMessages.map((message) => (
-              <li key={message}>{message}</li>
-            ))}
-          </ul>
-
-          <div className="flex items-center justify-between rounded-full border border-neutral-700 bg-neutral-900 px-4 py-3 text-sm text-neutral-400">
-            <span>Say something...</span>
-            <span aria-label="gift" role="img">
-              🎁
-            </span>
-          </div>
-
-          <div className="flex items-center justify-between pt-2 text-sm font-medium text-neutral-100">
-            <span>❤️ Follow</span>
-            <span>🎁 Gift</span>
-            <span>🔗 Share</span>
-          </div>
-        </div>
+      <section className="space-y-4">
+        {discoverySections.map((section) => (
+          <article
+            key={section.title}
+            className="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-5"
+          >
+            <h2 className="mb-3 text-lg font-semibold text-neutral-100">
+              {section.title}
+            </h2>
+            <ul className="space-y-2 text-sm text-neutral-300">
+              {section.items.map((item) => (
+                <li key={item}>• {item}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
       </section>
     </main>
   );
