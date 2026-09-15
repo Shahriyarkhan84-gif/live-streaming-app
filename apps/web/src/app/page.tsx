@@ -1,48 +1,45 @@
 export default function HomePage(): React.ReactElement {
-  const discoveryCategories = [
-    '🔴 Recommended',
-    '🌍 Near/Trending',
-    '🎮 Gaming',
-    '🎵 Music',
-    '💬 Chat & Social',
-    '🎤 Talent',
-    '😂 Entertainment',
+  const liveChatMessages = [
+    'User: Hello!',
+    'User2: Amazing stream',
+    'User3: 😂😂',
   ];
 
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-md flex-col border-x border-neutral-800 bg-neutral-950">
-      <header className="flex items-center justify-between border-b border-neutral-800 px-4 py-4 text-sm">
-        <span className="font-semibold text-red-400">🔴 LIVE</span>
-        <span className="text-neutral-300">🔍 Search</span>
-        <div className="flex items-center gap-3 text-lg">
-          <span aria-label="notifications" role="img">
-            🔔
-          </span>
-          <span aria-label="profile" role="img">
-            👤
-          </span>
-        </div>
+    <main className="mx-auto flex min-h-screen w-full max-w-md flex-col border-x border-neutral-800 bg-neutral-950 px-4 py-5">
+      <header className="mb-8 flex items-center justify-between text-sm">
+        <span className="font-semibold text-neutral-100">← Creator</span>
+        <span className="font-medium text-neutral-200">👥 12.4K</span>
       </header>
 
-      <section className="flex-1 px-6 py-8">
-        <h1 className="mb-10 text-center text-sm font-semibold uppercase tracking-[0.2em] text-neutral-100">
-          Live Stream Discovery
-        </h1>
+      <section className="flex-1">
+        <div className="mb-20 flex h-48 items-center justify-center rounded-2xl border border-neutral-800 bg-neutral-900/50 text-lg font-semibold uppercase tracking-[0.18em] text-neutral-200">
+          Live Video
+        </div>
 
-        <ul className="space-y-5 text-lg font-medium text-neutral-100">
-          {discoveryCategories.map((category) => (
-            <li key={category}>{category}</li>
-          ))}
-        </ul>
+        <div className="space-y-5">
+          <p className="text-2xl text-neutral-100">❤️ ❤️ 💎 ⭐</p>
+
+          <ul className="space-y-2 text-sm text-neutral-200">
+            {liveChatMessages.map((message) => (
+              <li key={message}>{message}</li>
+            ))}
+          </ul>
+
+          <div className="flex items-center justify-between rounded-full border border-neutral-700 bg-neutral-900 px-4 py-3 text-sm text-neutral-400">
+            <span>Say something...</span>
+            <span aria-label="gift" role="img">
+              🎁
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between pt-2 text-sm font-medium text-neutral-100">
+            <span>❤️ Follow</span>
+            <span>🎁 Gift</span>
+            <span>🔗 Share</span>
+          </div>
+        </div>
       </section>
-
-      <div className="grid grid-cols-5 items-center border-t border-neutral-800 px-2 py-3 text-center text-sm text-neutral-200">
-        <span>🏠 Home</span>
-        <span>🔴 Live</span>
-        <span>➕ Go Live</span>
-        <span>💬</span>
-        <span>👤</span>
-      </div>
     </main>
   );
 }
