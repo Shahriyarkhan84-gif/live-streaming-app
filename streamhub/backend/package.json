@@ -1,0 +1,6 @@
+{
+  "name": "streamhub-backend",
+  "private": true,
+  "version": "0.1.0",
+  "main": "server.js"
+}
